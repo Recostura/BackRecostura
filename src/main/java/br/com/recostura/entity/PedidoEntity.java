@@ -1,9 +1,6 @@
 package br.com.recostura.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -18,4 +15,10 @@ public class PedidoEntity {
     private String descricaoPedido;
 //    imagem
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id")
+    private ClienteEntity clienteEntities;
+
+    @OneToOne(mappedBy = "pedidoEntity")
+    private CandidaturaEntity candidaturaEntity;
 }

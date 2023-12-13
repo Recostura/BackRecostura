@@ -1,6 +1,6 @@
 package br.com.recostura.service;
 
-import br.com.recostura.entity.ServicoEntiy;
+import br.com.recostura.entity.ServicoEntity;
 import br.com.recostura.repository.ServicoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +16,20 @@ public class ServicoService {
     private ServicoRepository servicoRepository;
 
     @Transactional
-    public ServicoEntiy salvarServico(ServicoEntiy servicoEntity) {
-        ServicoEntiy servico = new ServicoEntiy();
+    public ServicoEntity salvarServico(ServicoEntity servicoEntity) {
+        ServicoEntity servico = new ServicoEntity();
         servico.setAcompanhamento(servicoEntity.getAcompanhamento());
         return servicoRepository.save(servico);
     }
 
-    public Page<ServicoEntiy> buscarTodosServicos(Pageable pageable) {
+    public Page<ServicoEntity> buscarTodosServicos(Pageable pageable) {
         return servicoRepository.findAll(pageable);
     }
 
-    public ServicoEntiy buscarServicoPorId(Long id) {
-        Optional<ServicoEntiy> servico = Optional.of(servicoRepository.findById(id)
+    public ServicoEntity buscarServicoPorId(Long id) {
+        Optional<ServicoEntity> servico = Optional.of(servicoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("O serviço informado não foi encontrado")));
-        ServicoEntiy servicoEntity = servico.get();
+        ServicoEntity servicoEntity = servico.get();
         return servicoEntity;
     }
 
@@ -40,10 +40,10 @@ public class ServicoService {
     }
 
     @Transactional
-    public ServicoEntiy atualizarServico(Long id, ServicoEntiy servicoEntity) {
-        Optional<ServicoEntiy> servico = Optional.of(servicoRepository.findById(id)
+    public ServicoEntity atualizarServico(Long id, ServicoEntity servicoEntity) {
+        Optional<ServicoEntity> servico = Optional.of(servicoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("O serviço não foi encontrado")));
-        ServicoEntiy entity = new ServicoEntiy();
+        ServicoEntity entity = new ServicoEntity();
         entity.setAcompanhamento(servicoEntity.getAcompanhamento());
         return servicoRepository.save(servico.get());
     }

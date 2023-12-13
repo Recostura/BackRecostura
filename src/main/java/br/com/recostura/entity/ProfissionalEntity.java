@@ -4,6 +4,8 @@ import br.com.recostura.enumeration.PlanoContratadoEnum;
 import br.com.recostura.enumeration.ServicoContratadoEnum;
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
 @Table (name = "TB_PROFISSIONAL")
 public class ProfissionalEntity {
@@ -15,6 +17,12 @@ public class ProfissionalEntity {
     private ServicoContratadoEnum servicoOferecido;
     private String mediaValor;
     private PlanoContratadoEnum planoContratado;
+
+    @OneToOne(mappedBy = "profissionalEntity")
+    private CandidaturaEntity candidaturaEntity;
+
+    @OneToMany(mappedBy = "profissionalEntities")
+    private Collection<ServicoEntity> servicoEntity;
 
     public Long getId() {
         return id;

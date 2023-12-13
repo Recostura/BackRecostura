@@ -1,17 +1,21 @@
 package br.com.recostura.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class ServicoEntiy {
+public class ServicoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String acompanhamento;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profissional_id")
+    private ProfissionalEntity profissionalEntities;
+
+    @OneToOne(mappedBy = "servico")
+    private AvaliacaoEntity avaliacao;
 
     public Long getId() {
         return id;

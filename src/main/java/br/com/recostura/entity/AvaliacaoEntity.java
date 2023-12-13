@@ -1,10 +1,7 @@
 package br.com.recostura.entity;
 
 import br.com.recostura.enumeration.ClassificacaoEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class AvaliacaoEntity {
@@ -14,6 +11,14 @@ public class AvaliacaoEntity {
     private Long id;
     private ClassificacaoEnum Classificacao;
     private String comentario;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id")
+    private ClienteEntity clienteEntity;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "servico_id")
+    private ServicoEntity servico;
 
     public Long getId() {
         return id;

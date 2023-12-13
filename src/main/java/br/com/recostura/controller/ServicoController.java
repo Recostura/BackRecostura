@@ -1,6 +1,6 @@
 package br.com.recostura.controller;
 
-import br.com.recostura.entity.ServicoEntiy;
+import br.com.recostura.entity.ServicoEntity;
 import br.com.recostura.service.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,17 +19,17 @@ public class ServicoController {
     private ServicoService servicoService;
 
     @GetMapping
-    public ResponseEntity<Page<ServicoEntiy>> buscarTodosServicos(@PageableDefault(size = 20) Pageable pageable) {
+    public ResponseEntity<Page<ServicoEntity>> buscarTodosServicos(@PageableDefault(size = 20) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(servicoService.buscarTodosServicos(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ServicoEntiy> buscarServicoPorId(@PathVariable Long id) {
+    public ResponseEntity<ServicoEntity> buscarServicoPorId(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(servicoService.buscarServicoPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<ServicoEntiy> salvarServico(@RequestBody ServicoEntiy servicoEntity) {
+    public ResponseEntity<ServicoEntity> salvarServico(@RequestBody ServicoEntity servicoEntity) {
         servicoService.salvarServico(servicoEntity);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -41,7 +41,7 @@ public class ServicoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ServicoEntiy> atualizarServico(@PathVariable Long id, @RequestBody ServicoEntiy servicoEntity) {
+    public ResponseEntity<ServicoEntity> atualizarServico(@PathVariable Long id, @RequestBody ServicoEntity servicoEntity) {
         servicoService.atualizarServico(id, servicoEntity);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
