@@ -22,7 +22,6 @@ public class PessoaService {
         pessoa.setEmail(pessoaEntity.getEmail());
         pessoa.setSenha(pessoaEntity.getSenha());
         pessoa.setDataNascimento(pessoaEntity.getDataNascimento());
-        pessoa.setGenero(pessoaEntity.getGenero());
         pessoa.setTelefone(pessoaEntity.getTelefone());
         pessoa.setEmail(pessoaEntity.getEmail());
         pessoa.setNacionalidade(pessoaEntity.getNacionalidade());
@@ -55,7 +54,6 @@ public class PessoaService {
         PessoaEntity entity = new PessoaEntity();
         entity.setNomeCompleto(pessoaEntity.getNomeCompleto());
         entity.setDataNascimento(pessoaEntity.getDataNascimento());
-        entity.setGenero(pessoaEntity.getGenero());
         entity.setTelefone(pessoaEntity.getTelefone());
         entity.setEmail(pessoaEntity.getEmail());
         entity.setNacionalidade(pessoaEntity.getNacionalidade());

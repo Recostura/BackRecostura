@@ -14,9 +14,8 @@ public class PessoaEntity {
     private Long id ;
     private String nomeCompleto;
     private String userName;
-        @JsonFormat(pattern = "dd-MM-yyyy")
+        @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
-    private GeneroEnum genero;
     private String email;
     private String senha;
     private String telefone;
@@ -54,14 +53,6 @@ public class PessoaEntity {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public GeneroEnum getGenero() {
-        return genero;
-    }
-
-    public void setGenero(GeneroEnum genero) {
-        this.genero = genero;
     }
 
     public String getEmail() {
