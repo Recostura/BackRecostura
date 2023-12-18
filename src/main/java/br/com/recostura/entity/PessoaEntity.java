@@ -39,6 +39,7 @@ public class PessoaEntity {
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto =nomeCompleto;
     }
+
     public String getUserName() {
         return userName;
     }

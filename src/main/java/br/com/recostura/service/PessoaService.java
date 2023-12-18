@@ -19,6 +19,7 @@ public class PessoaService {
     public PessoaEntity salvarPessoa(PessoaEntity pessoaEntity){
         PessoaEntity pessoa = new PessoaEntity();
         pessoa.setNomeCompleto(pessoaEntity.getNomeCompleto());
+        pessoa.setUserName(pessoaEntity.getUserName());
         pessoa.setEmail(pessoaEntity.getEmail());
         pessoa.setSenha(pessoaEntity.getSenha());
         pessoa.setDataNascimento(pessoaEntity.getDataNascimento());
@@ -53,6 +54,7 @@ public class PessoaService {
                 .orElseThrow(() -> new RuntimeException("A pessoa informada nao foi encontrada")));
         PessoaEntity entity = new PessoaEntity();
         entity.setNomeCompleto(pessoaEntity.getNomeCompleto());
+        entity.setUserName(pessoaEntity.getUserName());
         entity.setDataNascimento(pessoaEntity.getDataNascimento());
         entity.setTelefone(pessoaEntity.getTelefone());
         entity.setEmail(pessoaEntity.getEmail());
